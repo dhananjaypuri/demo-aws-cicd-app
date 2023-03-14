@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    commands: 
+      - echo "Installing Nginx"
+      - apt update -y
+      - apt install nginx -y
+
+  pre_build:
+    commands:
+      - echo "In the pre-build phase"
+  build:
+    commands:
+      - echo "In the Build Phase"
+      - cp index.html /var/www/html
+
+artifacts:
+  files:
+    - /var/www/html/index.html
